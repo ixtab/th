@@ -8,17 +8,21 @@ import { SMS } from '@ionic-native/sms';
 })
 export class HomePage {
 
-  numero: string;
+  numero: number;
+  num_string :string
   mensaje: string;
   contador: number;
+  veces: number;
 
   constructor(public navCtrl: NavController,  private sms: SMS ) {
     this.contador = 0;
   }
 
   enviar(){
-    this.sms.send(this.numero, this.mensaje);
-    this.contador++
+    this.num_string = this.numero.toString();
+    for (let i = 0; i < this.veces; i++){
+      this.sms.send(this.num_string, "Mensaje nº " + (this.contador+1) +": "+ this.mensaje);
+      this.contador++
+    }
   }
-
 }

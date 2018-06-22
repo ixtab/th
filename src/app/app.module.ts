@@ -1,3 +1,4 @@
+import { SMS } from '@ionic-native/sms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -24,6 +25,7 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
+    SMS,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

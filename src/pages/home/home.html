@@ -10,12 +10,17 @@
   <ion-card>
     <ion-item>
       <ion-label color="primary" stacked>Número de teléfono</ion-label>
-      <ion-input placeholder="Pon aquí el número de teléfono" [(ngModel)]="numero"></ion-input>
+      <ion-input type ="number" placeholder="Pon aquí el número de teléfono" [(ngModel)]="numero"></ion-input>
     </ion-item>
-      <br>
+    <br>
     <ion-item>
       <ion-label color="primary" stacked>Mensaje</ion-label>
       <ion-input placeholder="Pon aquí el mensaje para el sms" [(ngModel)]="mensaje"></ion-input>      
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label color="primary" stacked>Nº de mensajes</ion-label>
+      <ion-input type ="number" placeholder="Número de mensajes" [(ngModel)]="veces"></ion-input>      
     </ion-item>
       <button ion-button (click)="enviar()">Enviar SMS</button>
       <p>Mensajes enviados: {{contador}}</p>
