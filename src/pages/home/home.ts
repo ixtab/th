@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { SMS } from '@ionic-native/sms';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +8,17 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  numero: string;
+  mensaje: string;
+  contador: number;
 
+  constructor(public navCtrl: NavController,  private sms: SMS ) {
+    this.contador = 0;
+  }
+
+  enviar(){
+    this.sms.send(this.numero, this.mensaje);
+    this.contador++
   }
 
 }

@@ -1,14 +1,23 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      TocaHuevos
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-card>
+    <ion-item>
+      <ion-label color="primary" stacked>Número de teléfono</ion-label>
+      <ion-input placeholder="Pon aquí el número de teléfono" [(ngModel)]="numero"></ion-input>
+    </ion-item>
+      <br>
+    <ion-item>
+      <ion-label color="primary" stacked>Mensaje</ion-label>
+      <ion-input placeholder="Pon aquí el mensaje para el sms" [(ngModel)]="mensaje"></ion-input>      
+    </ion-item>
+      <button ion-button (click)="enviar()">Enviar SMS</button>
+      <p>Mensajes enviados: {{contador}}</p>
+  </ion-card>
 </ion-content>
