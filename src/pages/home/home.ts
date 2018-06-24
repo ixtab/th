@@ -53,7 +53,7 @@ export class HomePage {
   enviar(){
     this.num_sms_string = this.numero_sms.toString();
       this.sms.send(this.num_sms_string, this.mensaje);
-      this.contador++
+      this.contador++;
     
   }
   llamar(){
@@ -61,5 +61,6 @@ export class HomePage {
     this.callNumber.callNumber(this.num_llamada_string, true)
       .then(res => console.log('Launched dialer!', res))
       .catch(err => console.log('Error launching dialer', err));
+    this.contador++;
   }
 }
