@@ -7,22 +7,46 @@
 </ion-header>
 
 <ion-content padding>
+
   <ion-card>
+    <ion-card-header>Mandar SMS</ion-card-header>
     <ion-item>
       <ion-label color="primary" stacked>Número de teléfono</ion-label>
-      <ion-input type ="number" placeholder="Pon aquí el número de teléfono" [(ngModel)]="numero"></ion-input>
+      <ion-input type ="number" placeholder="Pon aquí el número de teléfono" [(ngModel)]="numero_sms"></ion-input>
     </ion-item>
     <br>
     <ion-item>
       <ion-label color="primary" stacked>Mensaje</ion-label>
-      <ion-input placeholder="Pon aquí el mensaje para el sms" [(ngModel)]="mensaje"></ion-input>      
+      <ion-input type="text" placeholder="Pon aquí el mensaje para el sms" [(ngModel)]="mensaje"></ion-input>      
     </ion-item>
     <br>
     <ion-item>
       <ion-label color="primary" stacked>Nº de mensajes</ion-label>
-      <ion-input type ="number" placeholder="Número de mensajes" [(ngModel)]="veces"></ion-input>      
+      <ion-input type ="number" placeholder="Número de mensajes" [(ngModel)]="veces_sms"></ion-input>      
     </ion-item>
-      <button ion-button (click)="enviar()">Enviar SMS</button>
-      <p>Mensajes enviados: {{contador}}</p>
+    <ion-item>
+      <ion-label color="primary" stacked>Tiempo entre mensajes (en segundos)</ion-label>
+      <ion-input type ="number" placeholder="Tiempo entre mensajes" [(ngModel)]="tiempo_sms"></ion-input>      
+    </ion-item>
+    <button ion-button (click)="intervalo_sms()">Enviar SMS</button>
+    <p>Mensajes enviados: {{contador}}</p>
   </ion-card>
+
+  <ion-card>
+    <ion-card-header>Llamar</ion-card-header>
+    <ion-item>
+      <ion-label color="primary" stacked>Número de teléfono</ion-label>
+      <ion-input type ="number" placeholder="Pon aquí el número de teléfono" [(ngModel)]="numero_llamada"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Nº de llamadas</ion-label>
+        <ion-input type ="number" placeholder="Número de llamadas" [(ngModel)]="veces_llamada"></ion-input>      
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" stacked>Tiempo entre llamadas (en segundos)</ion-label>
+        <ion-input type ="number" placeholder="Tiempo entre llamadsa" [(ngModel)]="tiempo_llamada"></ion-input>      
+      </ion-item>
+    <button ion-button (click)="intervalo_llamada()">Llamar</button>
+    </ion-card>
+
 </ion-content>

@@ -1,4 +1,5 @@
 import { SMS } from '@ionic-native/sms';
+import { CallNumber } from '@ionic-native/call-number';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -26,6 +27,7 @@ import { HomePage } from '../pages/home/home';
     StatusBar,
     SplashScreen,
     SMS,
+    CallNumber,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
