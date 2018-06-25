@@ -33,6 +33,11 @@ export class HomePage {
     this. intervalo = setInterval(()=>{ 
       this.enviar();
        }, (this.tiempo_sms)*1000);
+    if (this.contador >= this.veces_sms){
+    clearInterval(this.intervalo);
+    this.contador = 0;
+      }  
+       
   }
 
   intervalo_llamada(){
@@ -51,6 +56,7 @@ export class HomePage {
       this.contador++;
       if (this.contador >= this.veces_sms){
         clearInterval(this.intervalo);
+        this.contador = 0;
       }  
   }
 
@@ -61,7 +67,7 @@ export class HomePage {
       .catch(err => console.log('Error launching dialer', err));
     this.contador++;
     if (this.contador >= this.veces_llamada){
-      clearInterval();
+      clearInterval(this.intervalo);
     }
   }
 
