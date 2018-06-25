@@ -32,22 +32,13 @@ export class HomePage {
   intervalo_sms(){
     this. intervalo = setInterval(()=>{ 
       this.enviar();
-       }, (this.tiempo_sms)*1000);
-    if (this.contador >= this.veces_sms){
-    clearInterval(this.intervalo);
-    this.contador = 0;
-      }  
-       
+       }, (this.tiempo_sms)*1000);       
   }
 
   intervalo_llamada(){
     this. intervalo = setInterval(()=>{ 
       this.llamar();
       }, (this.tiempo_llamada)*1000);
-   
-    if (this.contador >= this.veces_llamada){
-      clearInterval(this.intervalo);
-    }
   }
 
   enviar(){
@@ -68,6 +59,7 @@ export class HomePage {
     this.contador++;
     if (this.contador >= this.veces_llamada){
       clearInterval(this.intervalo);
+      this.contador = 0;
     }
   }
 }
