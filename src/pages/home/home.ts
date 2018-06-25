@@ -21,6 +21,7 @@ export class HomePage {
 
   tiempo_sms : number;
   tiempo_llamada : number;
+  intervalo : any;
 
   constructor(public navCtrl: NavController,  private sms: SMS, private callNumber: CallNumber ) {
     this.contador = 0;
@@ -29,24 +30,20 @@ export class HomePage {
   }
 
   intervalo_sms(){
-    do {
-      setInterval(()=>{ 
+    this. intervalo = setInterval(()=>{ 
       this.enviar();
        }, (this.tiempo_sms)*1000);
-    } while (this.contador < this.veces_sms)
-    if (this.contador >= this.veces_sms){
-      this.contador = 0;
-    }
+      
+    
   }
 
   intervalo_llamada(){
-    do {
-      setInterval(()=>{ 
+    this. intervalo = setInterval(()=>{ 
       this.llamar();
-       }, (this.tiempo_llamada)*1000);
-    } while (this.contador < this.veces_llamada)
+      }, (this.tiempo_llamada)*1000);
+   
     if (this.contador >= this.veces_llamada){
-      this.contador = 0;
+      clearInterval(this.intervalo);
     }
   }
 
@@ -54,6 +51,9 @@ export class HomePage {
     this.num_sms_string = this.numero_sms.toString();
       this.sms.send(this.num_sms_string, this.mensaje);
       this.contador++;
+      if (this.contador >= this.veces_sms){
+        clearInterval(this.intervalo);
+      }
     
   }
   llamar(){
@@ -62,5 +62,8 @@ export class HomePage {
       .then(res => console.log('Launched dialer!', res))
       .catch(err => console.log('Error launching dialer', err));
     this.contador++;
+    if (this.contador >= this.veces_llamada){
+      clearInterval();
+    }
   }
 }
