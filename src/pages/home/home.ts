@@ -33,8 +33,6 @@ export class HomePage {
     this. intervalo = setInterval(()=>{ 
       this.enviar();
        }, (this.tiempo_sms)*1000);
-      
-    
   }
 
   intervalo_llamada(){
@@ -53,9 +51,9 @@ export class HomePage {
       this.contador++;
       if (this.contador >= this.veces_sms){
         clearInterval(this.intervalo);
-      }
-    
+      }  
   }
+
   llamar(){
     this.num_llamada_string = this.numero_llamada.toString();
     this.callNumber.callNumber(this.num_llamada_string, true)
@@ -66,4 +64,5 @@ export class HomePage {
       clearInterval();
     }
   }
+
 }
