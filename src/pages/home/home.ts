@@ -64,7 +64,7 @@ export class HomePage {
     this.num_llamada_string = this.numero_llamada.toString();
     this.callNumber.callNumber(this.num_llamada_string, true)
       .then(res => console.log('Launched dialer!', res))
-      .catch(err => console.log('Error launching dialer', err));
+      .catch(err => alert('Error en la llamada'));
     this.contador++;
     if (this.contador >= this.veces_llamada){
       clearInterval(this.intervalo);
