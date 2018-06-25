@@ -70,5 +70,4 @@ export class HomePage {
       clearInterval(this.intervalo);
     }
   }
-
 }
