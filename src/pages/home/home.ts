@@ -30,15 +30,23 @@ export class HomePage {
   }
 
   intervalo_sms(){
-    this. intervalo = setInterval(()=>{ 
+    if (this.intervalo) {
+      clearInterval(this.intervalo);
+    }
+    this.contador = 0;
+    this.intervalo = setInterval(() => {
       this.enviar();
-       }, (this.tiempo_sms)*1000);       
+    }, (this.tiempo_sms) * 1000);
   }
 
   intervalo_llamada(){
-    this. intervalo = setInterval(()=>{ 
+    if (this.intervalo) {
+      clearInterval(this.intervalo);
+    }
+    this.contador = 0;
+    this.intervalo = setInterval(() => {
       this.llamar();
-      }, (this.tiempo_llamada)*1000);
+    }, (this.tiempo_llamada) * 1000);
   }
 
   enviar(){
